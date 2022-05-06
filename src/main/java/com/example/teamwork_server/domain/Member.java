@@ -7,17 +7,19 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "member")
 @NoArgsConstructor
-public class User{
+public class Member {
     @Id
     @GeneratedValue(strategy = IDENTITY) //autoincreament를 사용!
-    private int userId;
+    private int memberId;
     @Column
-    private int schoolNumber;
+    private String studentCode;
     @Column
     private String name;
     @Column
     private String phoneNumber;
+    @Column
+    private String address;
 
 }

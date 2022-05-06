@@ -15,7 +15,16 @@ public class ArticleService {
     public List<Article> findAllArticle(){
         return articleRepository.findAll();
     }
-    public Article findArticle(int boardId) {
-        return articleRepository.findArticleById(boardId);
+    public List<Article> findArticleByGroupId(int groupsId){
+        return articleRepository.findByGroupsIdOrderByCreatedAtAsc(groupsId);
     }
+    public Article findByArticleId(int articleId){
+        Article article = articleRepository.findByArticleId(articleId);
+        articleRepository.updateCount(article.getCount()+1,articleId);
+        return article;
+    }
+    public Article saveArticle(Article article) {
+        return articleRepository.save(article);
+    }
+
 }

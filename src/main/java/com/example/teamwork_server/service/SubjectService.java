@@ -18,4 +18,5 @@ public class SubjectService {
     public Subject findSubject(int subjectId){
         return subjectRepository.findBySubjectId(subjectId);
     }
+
 }
