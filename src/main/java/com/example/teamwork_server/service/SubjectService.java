@@ -1,6 +1,7 @@
 package com.example.teamwork_server.service;
 
 
+import com.example.teamwork_server.domain.MemberSubject;
 import com.example.teamwork_server.domain.Subject;
 import com.example.teamwork_server.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +13,8 @@ import java.util.List;
 public class SubjectService {
     private final SubjectRepository subjectRepository;
 
-    public List<Subject> findAllSubject(){
-        return subjectRepository.findAll();
+    public List<MemberSubject> findAllSubject(int memberId){
+        return subjectRepository.findAllSubject(memberId);
     }
     public Subject findSubject(int subjectId){
         return subjectRepository.findBySubjectId(subjectId);

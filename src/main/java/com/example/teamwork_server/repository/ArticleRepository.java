@@ -16,6 +16,8 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     @Query(value = "update article set count=?1 where article_id=?2", nativeQuery = true)
     void updateCount(int count,int articleId);
     Article findByArticleId(int articleId);
+
+
 }
 
 

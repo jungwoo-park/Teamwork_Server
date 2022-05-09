@@ -1,4 +1,5 @@
 package com.example.teamwork_server.controller;
+import com.example.teamwork_server.domain.MemberSubject;
 import com.example.teamwork_server.domain.Subject;
 import com.example.teamwork_server.service.SubjectService;
 import lombok.RequiredArgsConstructor;
@@ -15,21 +16,28 @@ import java.util.List;
 public class SubjectController {
     private final SubjectService subjectService;
 
-    //과목 전체 조회 api
-//    @ResponseBody
-//    @GetMapping(value = "/subject/all")
-//    public List<Subject> getAllSubject(){
-//        return subjectService.findAllSubject();
-//    }
     //과목 단일 조회 api
     @ResponseBody
     @GetMapping(value = "/subject")
     public Subject getSubject(@RequestParam(value = "memberId") int id, Model model){
         return subjectService.findSubject(id);
     }
-}
-//url user 추가 1번 이 듣는 과목
-// url post
-// - get방식 : 시간표를 가져오는데 목요일에 시간표를 가지고 오고싶다. DB에서 목요일에 시간표를 뽑느다.
-// - post방식: 보안적...
 
+    //과목 여러개 조회 api
+    @ResponseBody
+    @GetMapping(value = "/subject/all")
+    public List<MemberSubject> getSubjectAll(@RequestParam(value = "memberId") int id,Model model){
+        return subjectService.findAllSubject(id);
+    }
+
+    //과목명 시간표 조회 api
+
+
+    //과목 검색 api
+
+    // 과목 저장 api
+
+    // 사람들마다 시간표 저장하는 table 만들기
+
+
+}

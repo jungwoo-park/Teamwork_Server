@@ -25,7 +25,7 @@ public class ArticleController {
     //게시글 단일조회 api -> GET
     @ResponseBody
     @GetMapping(value = "/article")
-    public Article getArticleInfo(@RequestParam(value = "articleId") int id,Model model){
+    public Article getArticleInfo(@RequestParam(value = "articleId") int id, Model model) {
         return articleService.findByArticleId(id);
     }
 
@@ -33,15 +33,25 @@ public class ArticleController {
     @ResponseBody
     @PostMapping(value = "/article/save")
     public Article saveArticle(@RequestBody Article article, Model model) { //localhost:8080/article?groupsId=1
-        Date now = new Date();
-        article.setCreatedAt(now);
         return articleService.saveArticle(article);
     }
+
     //게시글 수정
-
-
+    @ResponseBody
+    @PutMapping(value = "/article/update")
+    public Article updateArticle(@RequestBody Article article, @RequestParam(value = "articleId") int articleId, Model model) { //localhost:8080/article?groupsId=1
+        return articleService.updateArticle(article, articleId);
+    }
 
     //게시글 삭제
-}
+    @ResponseBody
+    @DeleteMapping(value = "/article/delete")
+    public void deleteArticle(@RequestParam(value = "articleId") int articleId) { //localhost:8080/article?groupsId=1
+        articleService.deleteArticle(articleId);
 
-// 게시글 Creat Read Update Delete
+
+    }
+}
+// 게시글 Creat Read Update Delete 완료
+
+
