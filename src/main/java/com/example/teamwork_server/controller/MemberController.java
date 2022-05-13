@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MemberController {
     private final MemberService memberService;
 
-    //유저 단일 조회 api (마이페이지)
+    //멤버 단일 조회 api (마이페이지)
     @ResponseBody
     @GetMapping(value="/member")
     public Member getMember(@RequestParam(value = "memberId") int id, Model model){
