@@ -10,12 +10,10 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @Setter
-@NoArgsConstructor(access = PROTECTED)
-@AllArgsConstructor(access = PACKAGE)
+@NoArgsConstructor
+@AllArgsConstructor
 public class MemberDto {
-    private int memberId;
-    private String name;
-    private String phoneNumber;
-    private String address;
-    private String studentCode;
+    private int id;
+    private String nickName;
+    private String kakaoToken;
 }

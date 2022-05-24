@@ -16,23 +16,16 @@ public class MemberService {
         this.memberMapper = memberMapper;
     }
 
-    public List<MemberDto> getMemberList() {
-        return memberMapper.getMemberList();
-    }
+//    public List<MemberDto> getMemberList() {
+//        return memberMapper.getMemberList();
+//    }
 
-    public MemberDto getMember(int id) {
-        return memberMapper.getMember(id);
+    public MemberDto getMember(String kakaoToken) {
+        return memberMapper.getMemberInfo(kakaoToken);
     }
 
     public int createMember(MemberDto member) {
         return memberMapper.createMember(member);
     }
 
-    public int updateMember(MemberDto member) {
-        return memberMapper.updateMember(member);
-    }
-
-    public int deleteMember(int id) {
-        return memberMapper.deleteMember(id);
-    }
 }

@@ -17,15 +17,16 @@ public class GroupDto {
     private int memberId;
 
     // LocalDateTime 멀티쓰레드환경에서 안전 (thread safe)
-    private LocalDateTime updatedAt;
     private LocalDateTime createdAt;
     private LocalDateTime deletedAt;
 
     // static factory method pattern
     // of / from -> 여러가지 인자값으로 객체 만듬 / 한가지 인자값으로 객체 만듬
-    public static GroupDto of (int groupsId, int memberId, LocalDateTime updatedAt, LocalDateTime createdAt, LocalDateTime deletedAt){
+    public static GroupDto of (int groupsId, int memberId, LocalDateTime createdAt, LocalDateTime deletedAt){
         return GroupDto.builder()
                 .groupsId(groupsId)
+                .createdAt(createdAt)
+                .deletedAt(deletedAt)
                 .memberId(memberId).build();
     }
 
